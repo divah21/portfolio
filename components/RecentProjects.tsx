@@ -100,10 +100,12 @@ const RecentProjects = () => {
 
             {/* Video Section */}
             <div className="w-full lg:w-1/2">
-              <video controls className="w-full h-[380px] rounded-lg">
-                <source src={selectedProject.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <iframe
+                className="w-full h-[380px] rounded-lg"
+                src={selectedProject.video}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
             </div>
 
             {/* Text Content Section */}
