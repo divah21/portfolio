@@ -68,7 +68,7 @@ const SafeLinkBlog = () => {
                 I chose to build{" "}
                 <span className="text-blue-400 font-semibold">SafeLink</span> —
                 a URL safety scanner that analyzes links for potential security
-                threats, phishing attempts, and malware. In today's digital age
+                threats, phishing attempts, and malware. In today&apos;s digital age
                 where phishing attacks are increasingly sophisticated, having an
                 AI assistant that can quickly assess URL safety is invaluable.
               </p>
@@ -92,8 +92,8 @@ const SafeLinkBlog = () => {
                   https://stage-3-mastra-agent-production.up.railway.app
                 </a>
                 <p className="text-gray-400 text-sm mt-4">
-                  Try asking in Telex: "Is https://google.com safe?" or "Check
-                  https://googl.com"
+                  Try asking in Telex: &quot;Is https://google.com safe?&quot; or &quot;Check
+                  https://googl.com&quot;
                 </p>
               </div>
             </section>
@@ -214,7 +214,7 @@ const SafeLinkBlog = () => {
                     1. Input Processing
                   </h4>
                   <p className="text-gray-400 text-sm">
-                    The agent receives a natural language query via Telex.im's
+                    The agent receives a natural language query via Telex.im&apos;s
                     A2A protocol and extracts the URL using regex patterns. It
                     handles both full URLs (https://example.com) and bare
                     domains (example.com), automatically adding protocols when
@@ -240,7 +240,7 @@ const SafeLinkBlog = () => {
                   </h4>
                   <p className="text-gray-400 text-sm">
                     If not cached, the system performs threat analysis using
-                    either VirusTotal's comprehensive database (when API key is
+                    either VirusTotal&apos;s comprehensive database (when API key is
                     available) or intelligent heuristic scanning that checks for
                     suspicious patterns, typosquatting, missing HTTPS, and known
                     phishing indicators.
@@ -269,7 +269,7 @@ const SafeLinkBlog = () => {
               <p className="text-gray-300 leading-relaxed mb-4">
                 One of the most significant challenges was dealing with LLM
                 response timeouts. During testing with Telex.im, I noticed the
-                agent would sometimes hang indefinitely on the "Scanning..."
+                agent would sometimes hang indefinitely on the &quot;Scanning...&quot;
                 message without returning results.
               </p>
 
@@ -345,8 +345,8 @@ if (!contentText) {
                     <code>https://googl.com</code>
                   </p>
                   <p className="text-xs text-gray-400">
-                    Flagged as typosquatting attempt — domain "googl" is
-                    edit-distance 1 from "google"
+                    Flagged as typosquatting attempt — domain &quot;googl&quot; is
+                    edit-distance 1 from &quot;google&quot;
                   </p>
                 </div>
                 <div className="p-4 bg-green-900/20 rounded-lg border border-green-500/30">
@@ -368,7 +368,7 @@ if (!contentText) {
               </h2>
               <p className="text-gray-300 leading-relaxed mb-4">
                 The Agent-to-Agent (A2A) protocol enables seamless communication
-                between AI agents. Here's how SafeLink integrates with Telex.im:
+                between AI agents. Here&apos;s how SafeLink integrates with Telex.im:
               </p>
 
               <div className="bg-black-200 p-6 rounded-lg border border-white/10 mb-4">
@@ -522,7 +522,7 @@ Content-Type: application/json
                     2. Model Selection Matters
                   </h4>
                   <p className="text-gray-400 text-sm">
-                    Initially tried Moonshot AI's Kimi K2 model, but it didn't
+                    Initially tried Moonshot AI&apos;s Kimi K2 model, but it didn&apos;t
                     support function calling. Switching to GPT-4o-mini solved
                     the tool execution issue. Always verify model capabilities
                     match your requirements.
@@ -564,7 +564,7 @@ Content-Type: application/json
                   <span className="text-blue-400 mr-3">▹</span>
                   <span>
                     <strong>Homoglyph Detection:</strong> Detect Unicode-based
-                    phishing (e.g., аpple.com using Cyrillic 'а')
+                    phishing (e.g., аpple.com using Cyrillic &apos;а&apos;)
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -605,13 +605,13 @@ Content-Type: application/json
                 Building SafeLink was an incredible learning experience that
                 pushed me to think deeply about AI agent architecture,
                 production reliability, and user experience. The combination of
-                Mastra's powerful orchestration, OpenRouter's flexible LLM
-                access, and Telex.im's A2A protocol created a seamless
+                Mastra&apos;s powerful orchestration, OpenRouter&apos;s flexible LLM
+                access, and Telex.im&apos;s A2A protocol created a seamless
                 integration that feels natural to use.
               </p>
               <p className="text-gray-300 leading-relaxed mb-4">
-                This project reinforced that building production AI agents isn't
-                just about connecting to an LLM — it's about handling edge cases
+                This project reinforced that building production AI agents isn&apos;t
+                just about connecting to an LLM — it&apos;s about handling edge cases
                 gracefully, optimizing for real-world constraints, and always
                 prioritizing the user experience.
               </p>
