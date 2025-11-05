@@ -1,23 +1,24 @@
-import React from 'react';
-import Link from 'next/link';
-import { Spotlight } from '@/components/ui/Spotlight';
-import { FloatingNav } from '@/components/ui/FloatingNavbar';
-import { navItems } from '@/data';
+import React from "react";
+import Link from "next/link";
+import { Spotlight } from "@/components/ui/Spotlight";
+import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import { navItems } from "@/data";
 
 export const metadata = {
-  title: 'Blog | David Smart',
-  description: 'Articles about AI, software development, and tech innovations',
+  title: "Blog | David Smart",
+  description: "Articles about AI, software development, and tech innovations",
 };
 
 const blogPosts = [
   {
     id: 1,
-    title: 'Building SafeLink: An AI-Powered URL Safety Scanner',
-    slug: 'safelink-url-scanner',
-    excerpt: 'How I built an intelligent security agent using Mastra AI and integrated it with Telex.im for real-time threat detection.',
-    date: 'November 5, 2025',
-    readTime: '10 min read',
-    tags: ['AI', 'Security', 'Mastra', 'TypeScript'],
+    title: "Building SafeLink: An AI-Powered URL Safety Scanner",
+    slug: "safelink-url-scanner",
+    excerpt:
+      "How I built an intelligent security agent using Mastra AI and integrated it with Telex.im for real-time threat detection.",
+    date: "November 5, 2025",
+    readTime: "10 min read",
+    tags: ["AI", "Security", "Mastra", "TypeScript"],
     featured: true,
   },
   // Add more blog posts here as you write them
@@ -28,13 +29,22 @@ const BlogPage = () => {
     <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
-        
+
         <div className="pb-20 pt-36">
           {/* Spotlight Effects */}
           <div>
-            <Spotlight className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen" fill="white" />
-            <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="purple" />
-            <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
+            <Spotlight
+              className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
+              fill="white"
+            />
+            <Spotlight
+              className="top-10 left-full h-[80vh] w-[50vw]"
+              fill="purple"
+            />
+            <Spotlight
+              className="top-28 left-80 h-[80vh] w-[50vw]"
+              fill="blue"
+            />
           </div>
 
           {/* Header */}
@@ -43,7 +53,8 @@ const BlogPage = () => {
               Blog
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl">
-              Insights on AI development, software engineering, and building innovative solutions
+              Insights on AI development, software engineering, and building
+              innovative solutions
             </p>
           </div>
 
@@ -60,11 +71,11 @@ const BlogPage = () => {
                     Featured
                   </span>
                 )}
-                
+
                 <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                   {post.title}
                 </h2>
-                
+
                 <p className="text-gray-400 mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
@@ -108,7 +119,9 @@ const BlogPage = () => {
           {/* Empty State (if no featured posts) */}
           {blogPosts.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-gray-400 text-lg">More articles coming soon...</p>
+              <p className="text-gray-400 text-lg">
+                More articles coming soon...
+              </p>
             </div>
           )}
         </div>
