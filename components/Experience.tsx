@@ -166,6 +166,47 @@ const MobileProjectCard = ({ project }: { project: Project }) => (
   </div>
 );
 
+/** Wide web project — screenshot on the left, details on the right (fills the column). */
+const WideProjectCard = ({ project }: { project: Project }) => (
+  <div className="flex flex-col gap-6 rounded-2xl border border-white/10 bg-black-200 p-6 backdrop-blur-md sm:flex-row sm:items-center">
+    {/* Screenshot */}
+    <div className="group/proj relative w-full shrink-0 overflow-hidden rounded-xl border border-white/10 bg-black-100 sm:w-[56%]">
+      {project.image ? (
+        <img
+          src={project.image}
+          alt={project.name}
+          className="aspect-video w-full object-cover object-top transition-transform duration-500 group-hover/proj:scale-[1.03]"
+        />
+      ) : (
+        <div
+          className={`flex aspect-video w-full items-end bg-gradient-to-br ${project.gradient ?? "from-violet-600 to-fuchsia-600"} p-4`}
+        >
+          <span className="text-2xl font-extrabold tracking-tight text-white drop-shadow">
+            {project.name}
+          </span>
+        </div>
+      )}
+      <span className="absolute right-2.5 top-2.5">
+        <StatusBadge status={project.status} />
+      </span>
+    </div>
+
+    {/* Details */}
+    <div className="flex flex-1 flex-col justify-center gap-3 text-center sm:text-left">
+      <div className="flex items-center justify-center gap-3 sm:justify-start">
+        <h4 className="text-xl font-bold text-white">{project.name}</h4>
+      </div>
+      <p className="text-sm leading-relaxed text-white-100">{project.des}</p>
+      <div className="flex justify-center sm:justify-start">
+        <TechChips stack={project.stack} />
+      </div>
+      <div className="mt-1 flex justify-center sm:justify-start">
+        <ProjectActions project={project} />
+      </div>
+    </div>
+  </div>
+);
+
 /** Impact panel for roles without portfolio projects. */
 const ImpactPanel = ({
   metrics,
@@ -216,8 +257,8 @@ const Experience = () => {
         Experience &amp; <span className="text-purple">Selected Work</span>
       </h1>
       <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white-200 sm:text-base">
-        Where I&apos;ve worked and what I shipped there, from enterprise SaaS
-        to production mobile apps.
+        A snapshot of what I&apos;ve worked on, from enterprise SaaS to
+        production mobile apps.
       </p>
 
       <div className="relative mx-auto mt-16 max-w-7xl px-4">
@@ -231,6 +272,8 @@ const Experience = () => {
             const metrics = it.metrics as Metric[] | undefined;
             const isMobileRow =
               projects?.length === 1 && projects[0].kind === "mobile";
+            const isWideRow =
+              projects?.length === 1 && projects[0].kind !== "mobile";
             return (
               <div key={item.id} className="relative flex gap-5 sm:gap-7">
                 {/* Node */}
@@ -294,15 +337,10 @@ const Experience = () => {
                   {/* Right column */}
                   {isMobileRow ? (
                     <MobileProjectCard project={projects![0]} />
+                  ) : isWideRow ? (
+                    <WideProjectCard project={projects![0]} />
                   ) : projects && projects.length > 0 ? (
-                    <div
-                      className={cn(
-                        "grid gap-4",
-                        projects.length > 1
-                          ? "sm:grid-cols-2"
-                          : "grid-cols-1 sm:max-w-md"
-                      )}
-                    >
+                    <div className="grid gap-4 sm:grid-cols-2">
                       {projects.map((p) => (
                         <ProjectCard key={p.name} project={p} />
                       ))}
