@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Ensure the (non-public) CV file is bundled into the /api/cv serverless function on Vercel.
+  outputFileTracingIncludes: {
+    "/api/cv": ["./private/**"],
+  },
   images: {
     remotePatterns: [
       {
@@ -15,9 +19,6 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 

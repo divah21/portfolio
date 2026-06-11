@@ -28,6 +28,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# private assets (CV is served via /api/cv, not committed to this public repo)
+/private
+
 # vercel
 .vercel
 
